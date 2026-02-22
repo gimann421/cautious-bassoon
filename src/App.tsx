@@ -8,6 +8,7 @@ import Retirement from './pages/Retirement';
 import Liability from './pages/Liability';
 import TaxSupport from './pages/TaxSupport';
 import Subscription from './pages/Subscription';
+import BenefitsMarketplace from './pages/BenefitsMarketplace';
 
 function AppRoutes() {
   const { onboardingComplete } = useApp();
@@ -29,6 +30,7 @@ function AppRoutes() {
         <Route path="/liability" element={<Liability />} />
         <Route path="/tax" element={<TaxSupport />} />
         <Route path="/subscription" element={<Subscription />} />
+        <Route path="/marketplace" element={<BenefitsMarketplace />} />
       </Route>
       <Route path="*" element={<Navigate to="/dashboard" replace />} />
     </Routes>

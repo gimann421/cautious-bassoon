@@ -8,6 +8,7 @@ import {
   ArrowRight,
   CheckCircle2,
   AlertCircle,
+  ShoppingBag,
 } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { TIER_CONFIG, INCOME_LABELS } from '../types';
@@ -165,6 +166,36 @@ export default function Dashboard() {
           </Link>
         ))}
       </div>
+
+      {/* Benefits Marketplace CTA */}
+      {(!profile.hasExistingHealth || !profile.hasRetirementAccount || !benefits.health.includesDental || !benefits.health.includesVision) && (
+        <div className="bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 rounded-2xl p-6">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div className="flex items-start gap-3">
+              <div className="w-10 h-10 rounded-lg bg-amber-100 flex items-center justify-center shrink-0">
+                <ShoppingBag className="w-5 h-5 text-amber-600" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-900">You may be missing key benefits</h3>
+                <p className="text-sm text-gray-600 mt-0.5">
+                  {!profile.hasExistingHealth
+                    ? "You don't have health insurance yet — browse plans tailored for freelancers."
+                    : !benefits.health.includesDental || !benefits.health.includesVision
+                    ? 'Add dental, vision, disability, or life insurance to complete your coverage.'
+                    : "Explore additional coverage like disability and life insurance to protect your income."}
+                </p>
+              </div>
+            </div>
+            <Link
+              to="/marketplace"
+              className="inline-flex items-center gap-2 bg-amber-500 text-white px-5 py-2.5 rounded-lg font-medium text-sm hover:bg-amber-600 transition-colors shrink-0"
+            >
+              Browse marketplace
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      )}
 
       {/* Quick actions / Tier upgrade prompt */}
       {profile.tier !== 'premium' && (

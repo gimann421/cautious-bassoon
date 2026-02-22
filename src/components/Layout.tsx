@@ -6,6 +6,7 @@ import {
   Shield,
   Calculator,
   CreditCard,
+  ShoppingBag,
   ChevronUp,
   LogOut,
   Menu,
@@ -21,6 +22,7 @@ const navItems = [
   { to: '/retirement', label: 'Retirement', icon: PiggyBank },
   { to: '/liability', label: 'Liability', icon: Shield },
   { to: '/tax', label: 'Tax Support', icon: Calculator },
+  { to: '/marketplace', label: 'Marketplace', icon: ShoppingBag },
   { to: '/subscription', label: 'Subscription', icon: CreditCard },
 ];
 
